@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 const Button = (props) => {
   return (
-    <ButtonStyled sizeButton={props.sizeButton}>{ props.text }</ButtonStyled>
+    <ButtonStyled>{ props.text }</ButtonStyled>
   )
 }
 
 const ButtonStyled = styled.button`
-  width: ${props => props.sizeButton === 'fullButton' ? "100%" : "0"};
+  width: 100%;
   height: 50px;
   border: 0;
   font-size: 1.5em;

@@ -10,7 +10,7 @@ const Login = () => {
       <ContainerLogin>
         <Input id="login" type="text" name="usuario" label="Usuário"></Input>
         <Input id="password" type="password" name="senha" label="Senha"></Input>
-        <Button text="Entrar" sizeButton="fullButton"></Button>
+        <Button text="Entrar"></Button>
       </ContainerLogin>
     </LoginStyled>
   )

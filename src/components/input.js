@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Input = (props) => {
+  const [active, setActive] = useState(false);
+  
+  const handleActive = (event) => {
+    if(event.target.value.length) {
+      setActive(true);
+    } else {
+      setActive(false);
+    }
+  }
+
   return (
       <LabelStyled>
-        <InputStyled id={props.id} type={props.type} name={props.name}/>
-        <LabelTextStyled htmlFor={props.id}>{props.label}</LabelTextStyled>
+        <InputStyled isActive={ active } id={props.id} type={props.type} name={props.name} onChange={ handleActive }/>
+        <LabelTextStyled isActive={ active } htmlFor={props.id}>{props.label}</LabelTextStyled>
       </LabelStyled>
   );
 }
+
 
 const InputStyled = styled.input`
   width: 100%;
@@ -23,6 +34,7 @@ const InputStyled = styled.input`
   color: #fff;
   border-bottom: 2px solid transparent;
   transition: all ease-in-out .3s;
+  border-color: ${props => props.isActive === true ? 'red': 'transparent'};
   &:focus {
     border-color: red;
   }
@@ -35,11 +47,11 @@ const LabelStyled = styled.label`
 const LabelTextStyled = styled.label`
   position: absolute;
   color: #949494;
-  left: 10px;
-  top: -8px;
   font-weight: 300;
-  font-size: 1.2em;
   transition: all ease-in-out .3s;
+  font-size: ${props => props.isActive ? '.7em': '1.2em'};
+  top: ${props => props.isActive ? '-12px': '-8px'};
+  left: ${props => props.isActive ? '12px': '10px'};
   ${InputStyled}:focus ~ & {
     font-size: .7em;
     top: -12px;
