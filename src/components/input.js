@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Input = (props) => {
   const [active, setActive] = useState(false);
-  
   const handleActive = (event) => {
     if(event.target.value.length) {
       setActive(true);
@@ -19,7 +18,6 @@ const Input = (props) => {
       </LabelStyled>
   );
 }
-
 
 const InputStyled = styled.input`
   width: 100%;
